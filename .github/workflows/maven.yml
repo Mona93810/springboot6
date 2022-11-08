@@ -24,8 +24,10 @@ jobs:
           java-version: "11"
           distribution: "temurin"
           cache: maven
-      - name: Build with Maven
+      - name: Maven
         run: mvn clean install & mvn dependency:resolve
+      - name: build
+        run : mvn package 
       - name: Open Port
         run: sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
       - name: Upload JAR
