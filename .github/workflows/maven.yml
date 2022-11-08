@@ -28,8 +28,17 @@ jobs:
         run: mvn clean install & mvn dependency:resolve
       - name: Open Port
         run: sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+      - name: Upload JAR
+        #This uploads artifacts from your workflow allowing you to share data between jobs and store data once a workflow is complete.
+        uses: actions/upload-artifact@v2
+        with:
+          #Set artifact name
+          name: artifact
+          #From this path
+          path: target/data-0.0.1-SNAPSHOT.jar
       - name: Execute Jar file
-        run: sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar &
+        # run: sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar &
+        run: sudo java -jar target/data-0.0.1-SNAPSHOT.jar
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
