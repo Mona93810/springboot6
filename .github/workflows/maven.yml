@@ -30,7 +30,7 @@ jobs:
         run: sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
       - name: Execute Jar file
-        run: sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar &
+        run: sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar
 
       # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
       - name: Update dependency graph
