@@ -20,10 +20,7 @@ public class Controller {
 
 	// Another syntax to implement a
 	// GET method
-	@RequestMapping(
-		method = { RequestMethod.GET },
-		value = { "/gfg" })
-
+	@RequestMapping('/test')
 	public String info()
 	{
 		String str2
