@@ -28,7 +28,7 @@ jobs:
     - name: Build with Maven
       run: mvn clean install
     - name: Execute Jar file
-      run: sudo kill -9 'sudo lsof -t -i:80' & sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar &
+      run: sudo kill -9 'sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT' & sudo java -jar /home/ubuntu/actions-runner/run.sh/springboot6/springboot6/target/demo-0.0.1-SNAPSHOT.jar &
       
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
