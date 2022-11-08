@@ -20,7 +20,7 @@ public class Controller {
 
 	// Another syntax to implement a
 	// GET method
-	@RequestMapping('/test')
+	@RequestMapping("/test")
 	public String info()
 	{
 		String str2
